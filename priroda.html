@@ -1,0 +1,706 @@
+<!Doctype html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>My gallery</title>
+		<link rel="stylesheet" href="style.css" />
+		<link rel="icon" href="av-3.ico" type="image/x-icon">
+		<script>
+			makeTimer1();
+			let slideIndex = 1;
+			showSlides(slideIndex);
+			function nextSlide() {
+				showSlides(slideIndex += 1);
+				makeTimer2(); 
+			}
+			function previousSlide() {
+				showSlides(slideIndex -= 1); 
+				makeTimer2(); 				
+			}
+			function currentSlide(n) {
+				showSlides(slideIndex = n);
+				makeTimer2(); 
+			}
+			function showSlides(n) {
+				let slides = document.getElementsByClassName("item");
+				if (n > slides.length) {
+				  slideIndex = 1
+				}
+				if (n < 1) {
+					slideIndex = slides.length
+				}
+				for (let slide of slides) {
+					slide.style.display = "none";
+				}
+				slides[slideIndex - 1].style.display = "block";				
+			}
+			
+			var timer = 0;
+			makeTimer1();
+			function makeTimer1(){
+				clearInterval(timer)
+				timer = setInterval(function(){
+				  slideIndex++;
+				  showSlides(slideIndex);
+				},3000);
+			}
+			var timer = 0;
+			makeTimer2();
+			function makeTimer2(){
+				clearInterval(timer)
+				timer = setInterval(function(){
+				  slideIndex++;
+				  showSlides(slideIndex);
+				}, 5000);
+			}
+		</script>
+		<style>
+			body{
+				background-image: url('2.png');
+				background-repeat: no-repeat;
+				margin:0px;
+				height: 100%;
+
+			}
+			div.a{
+				background-color: #FFE4E1;
+				background-color: rgba(255, 127, 127, 0.26);
+				text-align: center;
+				height: 110px;
+				margin-bottom: -27px;
+				margin-top: -26px;
+				border-bottom-style: solid;
+				border-bottom-width: 5px;
+				border-bottom-color: white;
+				
+				}
+			div.b{
+				text-align: center;
+				font-size: 30px;
+				font-style: normal;
+				font-weight: 30px;
+				font-family: Times New Roman;
+				font-variant: small-caps;
+				background-color: rgba(225, 192, 190, 0.15);
+				height: auto;
+				margin-bottom: 0;
+				margin-top: 26px;
+				border-bottom-style: solid;
+				border-bottom-width: 5px;
+				border-bottom-color: #F3CCC8;
+				border-top-style: solid;
+				border-top-width: 5px;
+				border-top-color: #F3CCC8;
+				overflow: hidden;
+			}
+			div.c{
+				background-color: #CB8AC3;
+				position: absolute;
+				width: 100%;
+				height: 60px;
+				top: 1000px;
+				bottom: 0;
+			}
+			div.s{
+				padding-top: 10px;
+				padding-bottom:17px;
+			}
+			h1{
+				color: #76000B;
+				font-family: Times New Roman;
+				font-variant: caps;
+				font-size: 47px;
+				font-style: normal;
+				font-weight: 500;
+				padding-top: 27px;
+				padding-bottom: 0px;
+			}
+			h2{
+				color: #89004D;
+				font-family: Times New Roman;
+				font-variant: small-caps;
+				font-size: 35px;
+				font-style: normal;
+				font-weight: 600;
+				text-align: center;
+				margin-top: 16px;
+				margin-bottom: 14px;
+			}
+			a{
+				text-decoration: none;
+				
+			}
+			li.a{
+				display: inline;
+				margin-right: 10px;
+				margin-left: 10px;
+				padding-top: 1 px;
+			}
+			a:link {
+				color: #89004D;
+			   }
+			a:visited {
+				color: #FA047B;				
+			   }
+			a:active {
+				color: #FF4900; 
+			   }
+	
+			p.f{
+				color: #89004D;
+				font-size: 19px;
+				margin-left: 10px;
+			}
+	
+			.slider{
+				max-width: 90%;
+				position: relative;
+				margin: auto;
+				height: 650px;
+				overflow: hidden;
+			}
+			.slider .item img {
+				object-fit: contain;
+				width: 100%;
+				height: 650px;
+			}
+
+			.slider .previous, .slider .next {
+				cursor: pointer;
+				position: absolute;
+				top: 50%;
+				width: auto;
+				margin-top: -22px;
+				padding: 16px;
+				color: #76000B;
+				font-size: 16px;
+				transition: 0.6s ease;
+				border-radius: 0 3px 3px 0;
+			}
+			.slider .next {
+				right: 0;
+				border-radius: 3px 0 0 3px;
+			}
+
+			.slider .previous:hover,
+			.slider .next:hover {
+				background-color: rgba(155, 96, 125, 0.2);
+			}
+			
+			@keyframes fade {
+				from {
+					opacity: 0.4
+				}
+				to {
+					opacity: 1
+				}
+			}
+			@media only screen and (max-width: 768px){
+				.slider .previous, .slider .next {
+					cursor: pointer;
+					position: absolute;
+					top: 50%;
+					width: auto;
+					margin-top: -22px;
+					padding: 16px;
+					color: #F3CCC8;
+					font-size: 16px;
+					transition: 0.6s ease;
+					border-radius: 0 3px 3px 0;
+				}
+				.slider{
+					max-width: 90%;
+					position: relative;
+					margin: auto;
+					height: 350px;
+					overflow: hidden;
+				}
+				.slider .item img {
+					object-fit: contain;
+					width: 100%;
+					height: 350px;
+				}
+				.slider .previous:hover,
+				.slider .next:hover {
+					background-color: rgba(155, 96, 125, 0.4);
+				}
+				div.s{
+			
+					margin-top: 70px;
+					padding-bottom:37px;
+				}
+				body{
+					background-image: url('2.png');
+					background-repeat: no-repeat;
+					margin:0px;
+					height: 100%;
+
+				}
+				div.c{
+					background-color: #CB8AC3;
+					position: absolute;
+					width: 100%;
+					height: 60px;
+					top: 960px;
+					bottom: 0;
+				}
+				p.f{
+					color: #89004D;
+					font-size: 17px;
+					margin-left: 10px;
+				}
+			}
+		</style>
+		<!--[if lt IE 9]>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js">
+			</script>
+		<![endif]-->
+	</head>
+	<body>
+		<div class="a">
+			<header>
+				<h1><font>MY GALLERY</font></h1>
+			</header>
+		</div>
+		<div class="b">
+
+		<nav>
+		  <ul class="menu">
+			<li class="a"><a href="main.html">главная</a></li>
+			<li class="a"><a href="priroda.html">природа</a></li>
+			<li class="a"><a href="animals.html">животные</a></li>
+			<li class="a"><a href="town.html">город</a></li>
+			<li class="a"><a href="other.html">остальное</a></li>
+		  </ul>
+		  </form>
+		</nav>
+		</div>
+		<h2>природа</h2>
+		<div class="s">
+		<div class="slider" >
+		  <div class="item">
+			<img src="p1.jpg">
+		  </div>
+
+		  <div class="item">
+			<img src="p2.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p3.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p4.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p5.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p6.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p7.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p8.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p9.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p10.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p11.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p12.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p13.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p14.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p15.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p16.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p18.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p19.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p20.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p21.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p22.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p23.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p24.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p25.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p26.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p27.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p28.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p29.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p30.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p31.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p32.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p33.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p34.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p35.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p36.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p37.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p38.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p40.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p41.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p42.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p43.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p44.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p45.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p46.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p47.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p48.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p49.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p50.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p51.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p52.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p53.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p54.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p55.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p56.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p57.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p58.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p59.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p60.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p61.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p62.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p63.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p64.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p65.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p66.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p67.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p68.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p69.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p70.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p71.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p72.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p73.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p74.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p75.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p76.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p77.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p78.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p79.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p80.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p81.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p82.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p83.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p84.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p85.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p86.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p87.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p88.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p89.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p90.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p91.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p92.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p93.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p94.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p95.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p96.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p97.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p98.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p99.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p100.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p101.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p102.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p103.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p104.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p105.jpg">
+		  </div>
+		  
+		   <div class="item">
+			<img src="p106.jpg">
+		  </div>
+		  
+		  <a class="previous" onclick="previousSlide()">&#10094;</a>
+		  <a class="next" onclick="nextSlide()">&#10095;</a>
+		</div>
+		</div>
+	</body>
+	<footer>
+		<div class="c"><p class="f">©Mari, 2024</p></div>
+	</footer>
+	
+</html>
